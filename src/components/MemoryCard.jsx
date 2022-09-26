@@ -1,7 +1,10 @@
 import React from 'react'
+import FrontCard from './FrontCard';
 
 export default function MemoryCard() {
   return (
-    <div className='memory-card'>Memory Card</div>
+    <section className='memory-card'>
+      <FrontCard/>
+    </section>
   )
 }
