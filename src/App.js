@@ -7,6 +7,8 @@ function App() {
       <header className="App-header">
       </header>
       <MemoryCard/>
+      <MemoryCard/>
+      <MemoryCard/>
     </div>
   );
 }
