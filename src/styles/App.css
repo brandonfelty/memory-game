@@ -3,3 +3,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+img {
+  max-width: 100px;
+  max-width: 60px;
+}
