@@ -25,6 +25,10 @@ img {
   transition: transform .2s;
 }
 
+.Memory-Card.Flip{
+  transform: rotateY(180deg);
+}
+
 .Front-Face, 
 .Back-Face {
   width: 100%;
