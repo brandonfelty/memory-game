@@ -2,7 +2,7 @@
 
 This is the classic memory game with cards where players can test their memory skills by correctly selecting matching cards. 
 
-This project uses React for the front-end and the back-end was created with Node and Express. 
+This project uses React and HTML/CSS for the front-end. The back-end was created with Node and Express. 
 
 The project was inspired by Memory Card Game - JavaScript Tutorial by freeCodeCamp.org.
 
