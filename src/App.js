@@ -3,14 +3,14 @@ import './styles/App.css';
 
 function App() {
   return (
-    <div className="App">
+    <section className="Memory-Game">
       <header className="App-header">
       </header>
       <MemoryCard frontImg="mist"/>
       <MemoryCard frontImg="forest"/>
       <MemoryCard frontImg="palm"/>
       <MemoryCard frontImg="sunrise"/>
-    </div>
+    </section>
   );
 }
 

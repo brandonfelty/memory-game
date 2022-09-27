@@ -4,9 +4,9 @@ import FrontCard from './FrontCard';
 
 export default function MemoryCard(props) {
   return (
-    <section className='memory-card'>
+    <div className='memory-card'>
       <FrontCard frontImg={props.frontImg}/>
       <BackCard/>
-    </section>
+    </div>
   )
 }
