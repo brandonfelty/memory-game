@@ -4,18 +4,14 @@
   box-sizing: border-box;
 }
 
-#root {
-  display: flex;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-}
-
 body {
   height: 100vh;
   background-color: blueviolet;
   margin: 0;
-  
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 
