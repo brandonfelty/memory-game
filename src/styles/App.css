@@ -1,8 +1,29 @@
 img {
-  max-width: 100px;
-  max-width: 60px;
+  width: 90px;
+  height: 120px;
 }
 
 .Memory-Game {
-  border: 2px solid black;
+  width: 640px;
+  height: 640px;
+  border: 2px solid #04eb10;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Memory-Card {
+  border: 2px solid aqua;
+  width: calc(25% - 10px);
+  height: calc(33.3% - 10px);
+  position: relative;
+  margin: 5px;
+}
+
+.Front-Face, 
+.Back-Face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 2px solid deeppink;
+  border-radius: 10px;
 }

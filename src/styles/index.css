@@ -4,10 +4,16 @@
   box-sizing: border-box;
 }
 
+#root {
+  display: flex;
+  margin: auto;
+}
+
 body {
   height: 100vh;
   background-color: blueviolet;
   margin: 0;
+  
 }
 
 

@@ -7,9 +7,17 @@ function App() {
       <header className="App-header">
       </header>
       <MemoryCard frontImg="mist"/>
+      <MemoryCard frontImg="mist"/>
+      <MemoryCard frontImg="forest"/>
       <MemoryCard frontImg="forest"/>
       <MemoryCard frontImg="palm"/>
+      <MemoryCard frontImg="palm"/>
       <MemoryCard frontImg="sunrise"/>
+      <MemoryCard frontImg="sunrise"/>
+      <MemoryCard frontImg="flower"/>
+      <MemoryCard frontImg="flower"/>
+      <MemoryCard frontImg="elk"/>
+      <MemoryCard frontImg="elk"/>
     </section>
   );
 }

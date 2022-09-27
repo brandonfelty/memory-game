@@ -4,7 +4,7 @@ import FrontCard from './FrontCard';
 
 export default function MemoryCard(props) {
   return (
-    <div className='memory-card'>
+    <div className='Memory-Card'>
       <FrontCard frontImg={props.frontImg}/>
       <BackCard/>
     </div>
