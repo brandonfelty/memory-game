@@ -3,4 +3,6 @@ img {
   max-width: 60px;
 }
 
-
+.Memory-Game {
+  border: 2px solid black;
+}
