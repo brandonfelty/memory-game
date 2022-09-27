@@ -6,9 +6,10 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <MemoryCard/>
-      <MemoryCard/>
-      <MemoryCard/>
+      <MemoryCard frontImg="mist"/>
+      <MemoryCard frontImg="forest"/>
+      <MemoryCard frontImg="palm"/>
+      <MemoryCard frontImg="sunrise"/>
     </div>
   );
 }
