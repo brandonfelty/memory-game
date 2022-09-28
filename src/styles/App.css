@@ -9,6 +9,7 @@ img {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .Memory-Card {
@@ -17,7 +18,8 @@ img {
   margin: 5px;
   position: relative;
   transform: scale(1);
-
+  transform-style: preserve-3d;
+  transition: transform .5s;
 }
 
 .Memory-Card:active{
@@ -36,3 +38,5 @@ img {
   position: absolute;
   border-radius: 10px;
 }
+
+

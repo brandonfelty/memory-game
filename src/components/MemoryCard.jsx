@@ -8,6 +8,7 @@ export default function MemoryCard(props) {
 
   const handleClick = (e) => {
     setFlipping(!isFlipping);
+    setVisible(!isVisible);
   };
 
   return (
