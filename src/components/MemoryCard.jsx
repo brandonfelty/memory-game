@@ -7,8 +7,23 @@ export default function MemoryCard(props) {
   const [isFlipping, setFlipping] = useState(false);
 
   const handleClick = (e) => {
-    setFlipping(!isFlipping);
-    setVisible(!isVisible);
+    setFlipping(true);
+    if (e.target.alt === 'Brain'){
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+    console.log(props.cards)
+    if (props.cards.length === 1){
+      if (props.cards[0] === e.target.dataset.card) {
+        console.log('congrats they match');
+      } else {
+        console.log('sorry please try again');
+      }
+      props.setCards([]);
+    } else {
+      props.setCards([e.target.dataset.card])
+    }
   };
 
   return (
@@ -21,7 +36,7 @@ export default function MemoryCard(props) {
       onClick={handleClick}>
         {isVisible 
           ? <FrontCard frontImg={props.frontImg}/> 
-          : <BackCard/>
+          : <BackCard cardName={props.frontImg}/>
         }
     </div>
   )
