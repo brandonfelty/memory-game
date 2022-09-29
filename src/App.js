@@ -4,13 +4,14 @@ import './styles/App.css';
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [disabled, setDisabled] = useState({});
 
   return (
     <section className="Memory-Game">
       <header className="App-header">
       </header>
-      <MemoryCard frontImg="mist" cards={cards} setCards={setCards}/>
-      <MemoryCard frontImg="mist" cards={cards} setCards={setCards}/>
+      <MemoryCard disabled={disabled} setDisabled={setDisabled} frontImg="mist" cards={cards} setCards={setCards}/>
+      <MemoryCard disabled={disabled} setDisabled={setDisabled} frontImg="mist" cards={cards} setCards={setCards}/>
       <MemoryCard frontImg="forest" cards={cards} setCards={setCards}/>
       <MemoryCard frontImg="forest" cards={cards} setCards={setCards}/>
       <MemoryCard frontImg="palm" cards={cards} setCards={setCards}/>

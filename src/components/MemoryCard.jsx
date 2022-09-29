@@ -7,9 +7,12 @@ export default function MemoryCard(props) {
   const [isFlipping, setFlipping] = useState(false);
 
   const handleClick = (e) => {
+    const cardName = e.target.dataset.card;
+    if (props.disabled[cardName]) return;
     setFlipping(true);
     if (e.target.alt === 'Brain'){
       setVisible(true);
+      props.setDisabled(prev => prev[cardName] = true);
     } else {
       setVisible(false);
     }
