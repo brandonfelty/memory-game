@@ -4,7 +4,7 @@ import '../styles/SingleCard.css';
 export default function SingleCard(props) {
   
   return (
-    <div key={props.id} className="card">
+    <div className="card">
       <div>
         <img 
           src={process.env.PUBLIC_URL + props.src}
