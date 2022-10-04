@@ -2,8 +2,7 @@ import React from 'react';
 import '../styles/SingleCard.css';
 
 export default function SingleCard(props) {
-  // props.id
-  // props.src
+  
   return (
     <div key={props.id} className="card">
       <div>
