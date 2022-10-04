@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/SingleCard.css';
 
 export default function SingleCard({ card }) {
-  console.log(card)
+  
   return (
     <div className="card">
       <div>
