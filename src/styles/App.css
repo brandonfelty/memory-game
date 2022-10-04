@@ -23,4 +23,9 @@ h1 {
   padding-bottom: 25px;
 }
 
+img {
+  width: 4em;
+  height: calc(1.5 * 3.5em);
+}
+
 
