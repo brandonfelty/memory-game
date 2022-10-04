@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/SingleCard.css';
 
-export default function SingleCard(props) {
-  
+export default function SingleCard({ card }) {
+  console.log(card)
   return (
     <div className="card">
       <div>
         <img 
-          src={process.env.PUBLIC_URL + props.src}
+          src={process.env.PUBLIC_URL + card.src}
           className="front" 
           alt="card front">
         </img>
