@@ -28,4 +28,11 @@ img {
   height: calc(1.5 * 3.5em);
 }
 
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
 
