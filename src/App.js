@@ -3,12 +3,12 @@ import './styles/App.css';
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-  { "src": "/images/elk Small.png" },
-  { "src": "/images/flower Small.png" },
-  { "src": "/images/forest Small.png" },
-  { "src": "/images/mist Small.png" },
-  { "src": "/images/mountain Small.png" },
-  { "src": "/images/palm Small.png" }
+  { "src": "/images/elk Small.png", matched: false },
+  { "src": "/images/flower Small.png", matched: false },
+  { "src": "/images/forest Small.png", matched: false },
+  { "src": "/images/mist Small.png", matched: false },
+  { "src": "/images/mountain Small.png", matched: false },
+  { "src": "/images/palm Small.png", matched: false }
 ];
 
 function App() {
@@ -37,13 +37,22 @@ function App() {
   const checkChoice = (firstChoice, secondChoice) => {
     if (firstChoice && secondChoice){
       if (firstChoice.src === secondChoice.src){
-        console.log('Congrats they match!');
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if (card.src === firstChoice.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
       } else {
-        console.log('Sorry please try again');
       }
       resetTurn();
     }
   };
+
+  console.log(cards);
 
   const resetTurn = () => {
     setFirstCard(null);
