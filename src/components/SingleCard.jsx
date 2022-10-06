@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/SingleCard.css';
 
-export default function SingleCard({ card, handleChoice }) {
+export default function SingleCard({ card, handleChoice, flipped }) {
   const handleClick = () => {
     handleChoice(card);
   };
   
   return (
     <div className="card">
-      <div>
+      <div className={ flipped ? "flipped" : "" }>
         <img 
           src={process.env.PUBLIC_URL + card.src}
           className="front" 
