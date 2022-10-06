@@ -9,3 +9,12 @@
   height: calc(1.5 * 3.5em);
 }
 
+.card .front {
+  transform: rotateY(90deg);
+  position: absolute;
+}
+
+.flipped .front {
+  transform: rotateY(0deg);
+}
+
