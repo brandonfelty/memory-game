@@ -1,6 +1,9 @@
 .App {
   max-width: 860px;
   margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 button {
@@ -25,10 +28,10 @@ h1 {
 
 .card-grid {
   width: 80%;
-  margin-top: 40px;
+  margin: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  gap: 20px;
 }
 
 
