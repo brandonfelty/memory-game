@@ -16,6 +16,7 @@ function App() {
   const [turns, setTurns] = useState(0);
   const [firstCard, setFirstCard] = useState(null);
   const [secondCard, setSecondCard] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -36,6 +37,7 @@ function App() {
 
   const checkChoice = (firstChoice, secondChoice) => {
     if (firstChoice && secondChoice){
+      setDisabled(true);
       if (firstChoice.src === secondChoice.src){
         setCards(prevCards => {
           return prevCards.map(card => {
@@ -59,6 +61,7 @@ function App() {
     setFirstCard(null);
     setSecondCard(null);
     setTurns(prevTurn => prevTurn++);
+    setDisabled(false);
   };
 
   return (
@@ -77,6 +80,7 @@ function App() {
                 card === secondCard ||
                 card.matched
               }
+            disabled={disabled}
           />
         ))}
       </div>
