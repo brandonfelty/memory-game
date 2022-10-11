@@ -14,7 +14,7 @@ Use npm start and then head to your browser to play!
 ## Screenshots
 
 ### Starting a new game
-https://raw.githubusercontent.com/brandonfelty/memory-game/c0d50fc9f02a19620113c2e997b9e50df6f7ddf2/public/images/screenshots/Front%20Page.png
+![alt text](https://raw.githubusercontent.com/brandonfelty/memory-game/c0d50fc9f02a19620113c2e997b9e50df6f7ddf2/public/images/screenshots/Front%20Page.png)
 
 ### See your progress
-https://raw.githubusercontent.com/brandonfelty/memory-game/c0d50fc9f02a19620113c2e997b9e50df6f7ddf2/public/images/screenshots/Game.png
+![alt text](https://raw.githubusercontent.com/brandonfelty/memory-game/c0d50fc9f02a19620113c2e997b9e50df6f7ddf2/public/images/screenshots/Game.png)
