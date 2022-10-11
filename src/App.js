@@ -46,9 +46,10 @@ function App() {
             }
           });
         });
+        resetTurn();
       } else {
+        setTimeout(() => resetTurn(), 500);
       }
-      resetTurn();
     }
   };
 
