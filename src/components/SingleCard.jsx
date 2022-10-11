@@ -2,8 +2,8 @@ import React from 'react';
 import '../styles/SingleCard.css';
 
 export default function SingleCard({ card, handleChoice, flipped, disabled }) {
-  const handleClick = () => {
-    if (!disabled) {
+  const handleClick = (e) => {
+    if (!disabled && e.detail === 1) {
       handleChoice(card);
     }
   };
