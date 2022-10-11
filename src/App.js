@@ -23,6 +23,8 @@ function App() {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
+    setFirstCard(null);
+    setSecondCard(null);
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -34,6 +36,10 @@ function App() {
   useEffect(() => {
     checkChoice(firstCard, secondCard);
   }, [secondCard]);
+
+  useEffect(() => {
+    shuffleCards();
+  }, []);
 
   const checkChoice = (firstChoice, secondChoice) => {
     if (firstChoice && secondChoice){
@@ -55,12 +61,10 @@ function App() {
     }
   };
 
-  console.log(cards);
-
   const resetTurn = () => {
     setFirstCard(null);
     setSecondCard(null);
-    setTurns(prevTurn => prevTurn++);
+    setTurns(prevTurn => prevTurn + 1);
     setDisabled(false);
   };
 
@@ -84,6 +88,7 @@ function App() {
           />
         ))}
       </div>
+      <p>Turns: {turns}</p>
     </div>
   );
 }
