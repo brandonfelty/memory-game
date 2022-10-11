@@ -33,33 +33,7 @@ function App() {
     firstCard ? setSecondCard(card) : setFirstCard(card);
   };
 
-  useEffect(() => {
-    checkChoice(firstCard, secondCard);
-  }, [secondCard]);
 
-  useEffect(() => {
-    shuffleCards();
-  }, []);
-
-  const checkChoice = (firstChoice, secondChoice) => {
-    if (firstChoice && secondChoice){
-      setDisabled(true);
-      if (firstChoice.src === secondChoice.src){
-        setCards(prevCards => {
-          return prevCards.map(card => {
-            if (card.src === firstChoice.src) {
-              return { ...card, matched: true };
-            } else {
-              return card;
-            }
-          });
-        });
-        resetTurn();
-      } else {
-        setTimeout(() => resetTurn(), 500);
-      }
-    }
-  };
 
   const resetTurn = () => {
     setFirstCard(null);
@@ -67,6 +41,34 @@ function App() {
     setTurns(prevTurn => prevTurn + 1);
     setDisabled(false);
   };
+
+  useEffect(() => {
+    const checkChoice = (firstChoice, secondChoice) => {
+      if (firstChoice && secondChoice){
+        setDisabled(true);
+        if (firstChoice.src === secondChoice.src){
+          setCards(prevCards => {
+            return prevCards.map(card => {
+              if (card.src === firstChoice.src) {
+                return { ...card, matched: true };
+              } else {
+                return card;
+              }
+            });
+          });
+          resetTurn();
+        } else {
+          setTimeout(() => resetTurn(), 500);
+        }
+      }
+    };
+
+    checkChoice(firstCard, secondCard);
+  }, [firstCard, secondCard]);
+
+  useEffect(() => {
+    shuffleCards();
+  }, []);
 
   return (
     <div className="App">
