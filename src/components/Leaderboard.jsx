@@ -24,7 +24,13 @@ const Leaderboard = () => {
           <td>Turns</td>
           <td>Time (s)</td>
         </tr>
-
+        {dummyData.map((userScore) => (
+          <tr key={userScore.user_id}>
+            <td>{userScore.username}</td>
+            <td>{userScore.turns}</td>
+            <td>{userScore.time}</td>
+          </tr>
+        ))}
       </table>
     </div>
   )
