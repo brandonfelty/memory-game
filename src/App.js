@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styles/App.css';
 import SingleCard from './components/SingleCard';
 import Leaderboard from './components/Leaderboard';
+import NewHighScore from './components/NewHighScore';
 
 const cardImages = [
   { "src": "/images/elk Small.png", matched: false },
@@ -32,6 +33,9 @@ function App() {
   const [firstCard, setFirstCard] = useState(null);
   const [secondCard, setSecondCard] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  //set to tru for testing
+  const [highScore, setHighScore] = useState(true);
+  const [username, setUsername] = useState('Mysterious Person');
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -56,6 +60,8 @@ function App() {
   };
 
   const checkGameOver = () => {
+    console.log('run checkgame over')
+    if (cards.length === 0) return false;
     for (const card of cards) {
       if (!card.matched) return false;
     }
@@ -94,13 +100,28 @@ function App() {
     const gameOver = checkGameOver();
     if (gameOver) {
       const highScore = checkHighScore(turns);
-      // if highscore update the data
+      setHighScore(true);
     }
   }, [firstCard, secondCard]);
 
   useEffect(() => {
     shuffleCards();
   }, []);
+
+  const changeUsername = (e) => {
+    setUsername(e.target.value)
+  };
+
+  const addScoreToLeaderboard = () => {
+    // save score to database and reload game
+  };
+
+  const saveHighScore = (e) => {
+    e.preventDefault();
+    setHighScore(false);
+    addScoreToLeaderboard();
+    shuffleCards();
+  }
 
   return (
     <div className="App">
@@ -124,6 +145,13 @@ function App() {
       </div>
       <p>Turns: {turns}</p>
       <Leaderboard dummyData={dummyData} />
+      {highScore && 
+      <NewHighScore 
+        username={username}
+        changeUsername={changeUsername}
+        saveHighScore={saveHighScore}
+      />
+      }
     </div>
   );
 }

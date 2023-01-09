@@ -1,0 +1,12 @@
+.hide-app {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+}
+
+.newhighscore--container {
+  border: 2px dashed white;
+  position: relative;
+  margin: auto;
+}
