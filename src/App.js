@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './styles/App.css';
 import SingleCard from './components/SingleCard';
+import Leaderboard from './components/Leaderboard';
 
 const cardImages = [
   { "src": "/images/elk Small.png", matched: false },
@@ -91,6 +92,7 @@ function App() {
         ))}
       </div>
       <p>Turns: {turns}</p>
+      <Leaderboard />
     </div>
   );
 }
