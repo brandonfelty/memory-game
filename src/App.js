@@ -14,20 +14,6 @@ const cardImages = [
   { "src": "/images/palm Small.png", matched: false }
 ];
 
-
-const dummyData = [
-  {user_id: 1, username: 'mike', turns: 5, time: 10},
-  {user_id: 2, username: 'larry', turns: 6, time: 100},
-  {user_id: 3, username: 'cleo', turns: 12, time: 10},
-  {user_id: 4, username: 'stew', turns: 17, time: 100},
-  {user_id: 5, username: 'mary', turns: 18, time: 100},
-  {user_id: 6, username: 'cindy', turns: 18, time: 1000},
-  {user_id: 7, username: 'bane', turns: 19, time: 1000},
-  {user_id: 8, username: 'gerry', turns: 20, time: 100},
-  {user_id: 9, username: 'tiger', turns: 20, time: 1000},
-  {user_id: 10, username: 'eagermike', turns: 22, time: 1000}
-];
-
 function App() {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
@@ -81,7 +67,7 @@ function App() {
   };
 
   const checkHighScore = () => {
-    const scoreToBeat = dummyData[dummyData.length - 1].turns;
+    const scoreToBeat = leaderboard[leaderboard.length - 1].turns;
     if (turns < scoreToBeat) {
       console.log('new high score')
     }
