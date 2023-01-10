@@ -24,16 +24,27 @@ function App() {
   const [highScore, setHighScore] = useState(false);
   const [username, setUsername] = useState('Mysterious Person');
   const [leaderboard, setLeaderboard] = useState([]);
+  const [startTime, setStartTime] = useState(null);
+  const [total_time, setTotalTime] = useState(0);
 
   // get leaderboard data
   useEffect(() => {
     const url = 'http://localhost:3030/api';
     axios.get(url)
     .then((res) => {
-      console.log(res.data)
       setLeaderboard(res.data)
     })
   }, [highScore]);
+
+  const getTime = () => {
+    const time = Math.floor(Date.now() / 1000)
+    if (startTime === null) {
+      setStartTime(time);
+    } else {
+      setTotalTime(time - startTime);
+    }
+  };
+  console.log(total_time)
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -44,6 +55,9 @@ function App() {
     setSecondCard(null);
     setCards(shuffledCards);
     setTurns(0);
+    setStartTime(null);
+    setTotalTime(0);
+    getTime();
   };
 
   const handleChoice = (card) => {
@@ -63,6 +77,7 @@ function App() {
     for (const card of cards) {
       if (!card.matched) return false;
     }
+    getTime();
     return true;
   };
 
@@ -70,7 +85,9 @@ function App() {
     const scoreToBeat = leaderboard[leaderboard.length - 1].turns;
     if (turns < scoreToBeat) {
       console.log('new high score')
+      return true;
     }
+    return false;
   };
 
   useEffect(() => {
@@ -98,7 +115,11 @@ function App() {
     const gameOver = checkGameOver();
     if (gameOver) {
       const highScore = checkHighScore(turns);
-      setHighScore(true);
+      if (highScore) {
+        setHighScore(true);
+      } else {
+        console.log('Good game');
+      }
     }
   }, [firstCard, secondCard]);
 
@@ -111,13 +132,24 @@ function App() {
   };
 
   const addScoreToLeaderboard = () => {
-    // save score to database and reload game
+    const url = 'http://localhost:3030/api/addscore';
+    axios.post(url, {
+        "username": username, 
+        "turns": turns,
+        "total_time": total_time
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   };
 
   const saveHighScore = (e) => {
     e.preventDefault();
-    setHighScore(false);
     addScoreToLeaderboard();
+    setHighScore(false);
     shuffleCards();
   }
 

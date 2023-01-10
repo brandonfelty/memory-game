@@ -33,9 +33,9 @@ app.get('/api', (req, res) => {
   });
 });
 
-app.get('/api/addscore', (req, res) => {
+app.post('/api/addscore', (req, res) => {
   const score = req.body;
-  
+  console.log(req.body)
   const query = 'INSERT INTO leaderboard SET ?';
   db.query(query, score, (err, result) => {
     if (err) throw err;
