@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './styles/App.css';
 import SingleCard from './components/SingleCard';
 import Leaderboard from './components/Leaderboard';
@@ -34,8 +35,19 @@ function App() {
   const [secondCard, setSecondCard] = useState(null);
   const [disabled, setDisabled] = useState(false);
   //set to tru for testing
-  const [highScore, setHighScore] = useState(true);
+  const [highScore, setHighScore] = useState(false);
   const [username, setUsername] = useState('Mysterious Person');
+  const [leaderboard, setLeaderboard] = useState([]);
+
+  // get leaderboard data
+  useEffect(() => {
+    const url = 'http://localhost:3030/api';
+    axios.get(url)
+    .then((res) => {
+      console.log(res.data)
+      setLeaderboard(res.data)
+    })
+  }, [highScore]);
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -144,7 +156,7 @@ function App() {
         ))}
       </div>
       <p>Turns: {turns}</p>
-      <Leaderboard dummyData={dummyData} />
+      <Leaderboard leaderboard={leaderboard} />
       {highScore && 
       <NewHighScore 
         username={username}

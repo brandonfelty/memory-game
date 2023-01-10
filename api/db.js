@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3030;
 
@@ -10,6 +11,7 @@ app.use(                //this mean we don't need to use body-parser anymore
     extended: true,
   })
 ); 
+app.use(cors()); // hopefully allows us to bypass cors policies
 
 const db = mysql.createConnection({
   host: 'localhost',

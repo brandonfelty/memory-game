@@ -1,7 +1,7 @@
 import React from 'react';
 import './Leaderboard.css';
 
-const Leaderboard = ({ dummyData }) => {
+const Leaderboard = ({ leaderboard }) => {
   return (
     <div className='leaderboard--container'>
       <h4 className='leaderboard--title'>Leaderboard</h4>
@@ -12,11 +12,11 @@ const Leaderboard = ({ dummyData }) => {
           <td>Time (s)</td>
         </thead>
         <tbody>
-          {dummyData.map((userScore) => (
+          {leaderboard.map((userScore) => (
             <tr key={userScore.user_id}>
               <td>{userScore.username}</td>
               <td>{userScore.turns}</td>
-              <td>{userScore.time}</td>
+              <td>{userScore.total_time}</td>
             </tr>
           ))}
         </tbody>
